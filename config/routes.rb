@@ -12,6 +12,7 @@ Jog::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure', notice: "Auth failure"
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  match '/search' => 'posts#search', :as => :search
 
   root :to => 'sub_categories#index'
 

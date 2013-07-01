@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :load_application_wide_varibales
-  protect_from_forgery
+
   
   private
    def current_user
@@ -24,6 +24,15 @@ class ApplicationController < ActionController::Base
   def get_subcategory_and_post
    @sub_category = SubCategory.all
   end
+  
+  def new
+    @post = Post.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
 end
 
   
@@ -40,6 +49,8 @@ class PostController < ActionController::Base
     end
    end
   end
+  
+
   
   class SubCategoryController < ActionController::Base
     before_filter :get_subcategory_and_post

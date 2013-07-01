@@ -9,18 +9,30 @@
   <%= stylesheet_link_tag  "application", :media => 'all' %>
 <%= javascript_include_tag "application" %>
 
+
+<script type ="text/javascript">
+$(function() {
+ $('a[rel*=leanModal]').leanModal({ 
+	top : 200, 
+	overlay : 0.4, 
+	closeButton: ".modal_close" 
+	});
+});
+</script>
+
   <%= csrf_meta_tags %>
   </head>
   <body>
+	
     <%= render 'layouts/header' %>
 
-	<script type="text/javascript">
-		$(function() {
-		  $('#typeahead').swiftype({
-		    engineKey: '<%= ENV['SWIFTYPE_ENGINE_KEY'] %>'
-		  });
-		});
-	</script>
 
+	<script type="text/javascript">
+	$(function() {
+	  $('#st-search-input').swiftype({
+	    engineKey: '<%= ENV['SWIFTYPE_ENGINE_KEY'] %>'
+	  });
+	});
+	</script>
 </body>
 </html>

@@ -5,32 +5,48 @@
 				 <% if current_user %>
 				<%= image_tag("#{current_user.image}", :class => 'img') %>
 				<%= current_user.name %>
-				<br /><%= link_to "Sign out", signout_path %>
+				<%= link_to "Sign out", signout_path %>
 				<% else %>
-				<%= image_tag('https://s3.amazonaws.com/freit5misc/github.png') %>
+				<%= image_tag('https://secure.gravatar.com/avatar/3e83df978155fb8fc25c8e3cbf24d05a?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png', :class => 'img' ) %>
 				<%= link_to  "Sign in", "http://www.jog.io/auth/github" %>
+				<p><%= link_to  "Sign out", "http://www.jog.io/signout" %></p></span></div>
 				<% end %>
-			</span></div>
-	
+				<!-- modal js --> 
+				
+				
+				
+				<!-- Button to trigger modal -->
+				
+			    <%= link_to  "Add code", '#lean_overlay', :rel => 'leanModal', :name => 'lean_overlay' %>
+			<a id="go" rel="leanModal" name="lean_overlay" href="#lean_overlay">With Close Button</a>
+			
+			   <!-- modal -->
+				
+				<div id="lean_overlay">
+	test
+					</div>
+					
 	<div id="header">
 	    <span id="tag">use</span>
 	     <span id="logo"><a href="/" id="logo">Jog</a></span>
 	        <span id="tag2">to quickly save & recall code</span></div>
 			<div class="demo">	
 				
-				<form>
-				  <input type='text' id='typeahead' class='typeahead' placeholder="Search here..."/>
-				</form>
+				<!-- <form action="/sub_categories/names" method="get">
+								  <input type='text' id='typeahead' class='typeahead' placeholder="Search here..." onclick="if(this.value=='Instant search result as you type'){this.value=''};start_search=true;$('search_results').hide()" autocomplete="off" />
+								</form> -->
 				
-			
-			
+				<form>
+				  <input type='text' id='st-search-input' class='typeahead'/>
+				</form>
+		
 		       </div>		
   <% flash.each do |name, msg| %>
-  	<div class="alert fade in alert-<%= name == :notice ? "success" : "error" %>">
+  	<div class="alert fade in alert <%= current_user.name == :notice ? "success" : "error" %>">
   	  <a class="close" data-dismiss="alert">x</a>
-	  <%= msg  %>			
+	  <%= msg  %>
+	</div>			
 <% end %>
-</div>
 
 <%= yield %>
 

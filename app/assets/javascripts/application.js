@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui.min
+//= require jquery.ui.all
 //= require jquery.swiftype.autocomplete
+//= require jquery.leanModal.min
 //= require on_the_spot
 //= require mousetrap
 //= require typeahead

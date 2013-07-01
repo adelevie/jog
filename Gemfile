@@ -11,10 +11,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'breadcrumbs_on_rails'
-gem 'pygments.rb'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'breadcrumbs_on_rails'
+gem 'pygments.rb'
 gem 'simple_form'
 gem 'devise'
 gem 'cancan'
